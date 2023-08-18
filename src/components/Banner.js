@@ -4,7 +4,7 @@ import pic from '../assets/banner.png'
 const Banner = () => {
     return (
         <div>
-            <img src={pic} width="100%" />
+            <img src={pic} width="100%" alt="Banner" />
         </div>
     )
 }

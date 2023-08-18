@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, CardMedia, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
@@ -8,13 +8,13 @@ import { CartContext } from '../context/CartContext'
 const Product = () => {
     const { productId } = useParams()
     let [meal, setMeal] = useState([])
-    const { cart, addToCart } = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
     useEffect(() => {
         axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${productId}`).then(res => {
             let data = res.data
             setMeal(data.meals[0])
         })
-    }, [])
+    }, [productId])
     return (
         <Container>
             <Card sx={{ display: 'flex', width: "100%" }} className='my-4'>

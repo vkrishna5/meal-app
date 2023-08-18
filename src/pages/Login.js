@@ -3,11 +3,17 @@ import { AuthContext } from '../context/AuthContext'
 import { Container } from 'react-bootstrap'
 import { Button, Card } from '@mui/material'
 import Heading from '../components/Heading'
+import { useNavigate } from 'react-router-dom'
+import swal from 'sweetalert'
 
 const Login = () => {
     const { login } = useContext(AuthContext)
     let [username, setUsername] = useState('')
     let [password, setPassword] = useState('')
+    let navigate = useNavigate()
+    const navigateToAdmin = () => {
+        navigate('/admin')
+    }
     return (
         <Container>
             <Card className='m-4 p-3'>
@@ -27,8 +33,9 @@ const Login = () => {
                             setUsername('')
                             setPassword('')
                             login()
+                            navigateToAdmin()
                         } else {
-                            alert("Incorrect username or password")
+                            swal("Oops!", "Incorrect username or password!", "error")
                         }
                     }}>Submit</Button>
                 </Container>

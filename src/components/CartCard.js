@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, Button } from '@mui/material';
+import swal from 'sweetalert';
 
 const CartCard = (props) => {
     let meal = props.meal
@@ -23,7 +24,7 @@ const CartCard = (props) => {
                 <Box className="my-auto me-4">
                     <Button variant="outlined" color="error" onClick={() => {
                         removeFromCart(meal)
-                        alert("Meal removed from cart!")
+                        swal("Success", "Meal removed from cart!", "success");
                     }}>Remove</Button>
                 </Box>
             </Card >

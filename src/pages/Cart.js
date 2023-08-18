@@ -5,6 +5,7 @@ import Heading from '../components/Heading'
 import CartCard from '../components/CartCard'
 import { OrderContext } from '../context/OrderContext'
 import { Button } from '@mui/material'
+import swal from 'sweetalert'
 
 const Cart = () => {
     const { cart, removeFromCart, emptyCart } = useContext(CartContext)
@@ -28,7 +29,7 @@ const Cart = () => {
                 <Button variant='contained' onClick={() => {
                     placeOrder({ id: Math.floor(Math.random() * (10000 - 1000)) + 1000, meals: cart, price: grandTotal })
                     emptyCart()
-                    alert("Order placed!")
+                    swal("Success", "Order placed!");
                 }}>Place Order</Button>
             </Row>
         </Container>

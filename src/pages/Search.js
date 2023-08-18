@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useSearchParams } from 'react-router-dom'
 import MealCard from '../components/MealCard'
+import Heading from '../components/Heading'
 
 const Search = () => {
     const [params] = useSearchParams()
@@ -17,11 +18,13 @@ const Search = () => {
     return (
         <Container>
             <Row>
-                <h1>Search Results: {query}</h1>
-                <hr />
+                <Heading title={`Search Results: ${query}`} />
             </Row>
             <Row className="my-2">
-                {meals.map((meal) => <Col xs={3} className="p-2"><MealCard meal={meal} /></Col>)}
+                {meals && meals.length > 0 ?
+                    meals.map((meal) => <Col xs={3} className="p-2"><MealCard meal={meal} /></Col>) :
+                    <p>No Results Found!</p>
+                }
             </Row>
         </Container>
     )

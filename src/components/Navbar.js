@@ -12,7 +12,8 @@ function MyNavbar() {
     let navigate = useNavigate()
     const navigateToSearch = (e) => {
         e.preventDefault()
-        if (text.length > 0) {
+        setText('')
+        if (text.length > 0 && Number.isNaN(Number(text)) && !/\d/.test(text)) {
             navigate(`/search?query=${text}`)
         }
     }
@@ -26,7 +27,7 @@ function MyNavbar() {
                         <Link className="nav-link" to="/">Home</Link>
                         <Link className="nav-link" to="/cart">Cart</Link>
                         <Link className="nav-link" to="/orders">Orders</Link>
-                        {authenticated ? <Link className="nav-link" onClick={logout}>Logout</Link> : <Link className="nav-link" to="/login">Login</Link>}
+                        {authenticated ? <Link className="nav-link" onClick={logout}>Logout</Link> : <></>}
 
                         <Link className="nav-link" to="/admin">Admin</Link>
                     </Nav>

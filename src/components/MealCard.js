@@ -8,6 +8,7 @@ import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { MealContext } from '../context/MealContext';
 import { Row } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 
 const MealCard = (props) => {
@@ -42,7 +43,7 @@ const MealCard = (props) => {
                                 <p className='lead'>₹ {mealPrice}</p>
                                 {mealPrice > 0 ? <Button variant="outlined" onClick={() => {
                                     addToCart(meal, mealPrice)
-                                    alert("Meal added to cart!")
+                                    swal("Success", "Meal added to cart!", "success");
                                 }}>Add to cart</Button> :
                                     <Alert severity="info">Out of stock</Alert>}
                             </div>
