@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { AuthProvider } from './context/AuthContext';
+import 'bootstrap/dist/css/bootstrap.css'
+import Footer from './components/Footer';
+import { CartProvider } from './context/CartContext';
+import { OrderProvider } from './context/OrderContext';
+import RouteConfiguration from './utils/RouteConfiguration';
+import { MealProvider } from './context/MealContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider>
+        <MealProvider>
+          <OrderProvider>
+            <CartProvider>
+              <RouteConfiguration />
+              <Footer />
+            </CartProvider>
+          </OrderProvider>
+        </MealProvider>
+      </AuthProvider>
+    </>
   );
 }
 
