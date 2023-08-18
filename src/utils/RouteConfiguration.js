@@ -24,7 +24,6 @@ const RouteConfiguration = () => {
                     <Route path="/search" element={<Search />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/orders" element={<Order />} />
-                    {/* <Route path="/admin" element={<Admin />} /> */}
                     <Route path="/category/:categoryName" element={<Category />} />
                     <Route path="/meal/:productId" element={<Product />} />
                     <Route path="/admin" element={<ProtectedRoute component={Admin} />} />

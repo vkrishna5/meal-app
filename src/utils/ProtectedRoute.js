@@ -6,8 +6,6 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
     let { authenticated } = useContext(AuthContext)
 
     if (!authenticated) {
-        // console.log("From protected location: " + location)
-        // alert("Please login first!")
         return <Navigate to="/login" replace={true} />
     } else {
         return <Component {...props} />
